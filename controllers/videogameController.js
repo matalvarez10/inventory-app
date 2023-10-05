@@ -9,7 +9,7 @@ exports.index = asyncHandler(async(req,res,next)=>{
 
 exports.all_videogames = asyncHandler(async(req,res,next)=>{
     gamesList = await Videogame.find({});
-    res.render("games_list.ejs",{gamesList:gamesList});
+    res.render("games_list.ejs",{gamesList:gamesList,title:"All Videogames List"});
 })
 
 exports.videogame_detail = asyncHandler(async (req,res,next) => {
@@ -18,7 +18,8 @@ exports.videogame_detail = asyncHandler(async (req,res,next) => {
 })
 
 exports.videogame_create_get = asyncHandler(async (req,res,next) => {
-    res.send("Todo implement: get create videogame");
+    const title = "Games Form" 
+    res.render("games_form.ejs",{title:"Add new Game"});
 })
 
 exports.videogame_create_post = asyncHandler(async (req,res,next) => {

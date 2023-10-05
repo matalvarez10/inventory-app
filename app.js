@@ -8,9 +8,10 @@ require("dotenv").config();
 const indexRouter = require("./routes/index");
 const gamesRouter = require("./routes/games");
 const genresRouter = require("./routes/genresRouter");
+const systemsRouter = require("./routes/systemsRouter");
 
-const System = require("./models/system");
 const Genre = require("./models/genre");
+const System = require("./models/system");
 const { title } = require("process");
 
 const app = express();
@@ -64,6 +65,7 @@ app.use(async (req, res, next) => {
 app.use("/", indexRouter);
 app.use("/games", gamesRouter);
 app.use("/genre", genresRouter);
+app.use("/system", systemsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

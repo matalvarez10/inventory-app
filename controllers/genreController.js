@@ -4,7 +4,9 @@ const asyncHandler = require("express-async-handler");
 
 
 exports.filter_by_genres = asyncHandler(async (req,res,next) => {
-    res.send("TODO IMPLEMENT: GET BY GENRE")
+    const gamesList = await Videogame.find({genre:req.params.id});
+    const genreInfo = await Genre.findById(req.params.id);
+    res.render("games_list.ejs",{title:`All ${genreInfo.title} games`,gamesList:gamesList})
 })
 exports.get_all_genres = asyncHandler(async (req,res,next) => {
     res.send("TODO IMPLEMENT: GET all genres")

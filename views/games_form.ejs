@@ -1,0 +1,20 @@
+<%- include("partials/header")  %>
+<%- include("partials/sidebar")  %>
+<h1 class="display-5"> <%= title %></h1>
+<form class="mx-2" style="max-width: 900px;">
+    <label for="gameName" class="form-label">Videogame Title:</label>
+    <input type="text" name="gameName" class="form-control">
+    <label for="developerName" class="form-label">Developer Name:</label>
+    <input type="text" name="developerName" class="form-control">
+    <label for="publisherName" class="form-label">Publisher Name:</label>
+    <input type="text" name="publisherName" class="form-control">
+    <label for="description" class="form-label">Videogame Description:</label>
+    <textarea name="description" class="form-control"></textarea>
+    <div class="d-flex flex-row gap-3 my-4">
+        <label for="price" class="form-label">Price:</label>
+        <input type="number" min="0" name="price" class="form-control">
+        <label for="Stock" class="form-label">Stock:</label>
+        <input type="number" min="0" name="Stock" class="form-control">
+    </div>
+</form>
+<%- include("partials/footer")  %>
