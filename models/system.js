@@ -7,5 +7,8 @@ const SystemSchema = new Schema({
     description: {type:String, minLength:2,maxLength:200},
 })
 
+SystemSchema.virtual("url").get(function(){
+    return `/system/${this._id}`;
+})
 
 module.exports = mongoose.model("System",SystemSchema);

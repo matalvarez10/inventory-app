@@ -1,0 +1,56 @@
+
+  <div class="col-sm-2 p-3 bg-light">
+      <em>Variant: <%= typeof variant != 'undefined' ? variant : 'default' %></em>
+      <a href="/" class="d-flex align-items-center gap-2  mb-3 link-dark text-decoration-none border-bottom">
+        <i id="home-icon" class="bi bi-controller""></i>
+        <span class="fs-5 fw-semibold">Video Game Inventory</span>
+      </a>
+      <ul class="list-unstyled ps-0">
+        <li class="mb-1">
+          <a href="/games">
+            <button class="btn btn-togglealign-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+              <i class="bi bi-list-check"></i>
+              All Games
+            </button>
+          </a>
+        </li>
+        <li class="mb-1">
+          <button class="btn btn-toggle btn-collapse align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+            Systems
+          </button>
+          <div class="collapse" id="dashboard-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              <% systemList.forEach((system)=>{%>
+                <li><a href=<%= system.url %> c class="link-dark rounded"><%= system.title %></a></li>
+               <% }) %>
+            </ul>
+          </div>
+        </li>
+        <li class="mb-1">
+          <button class="btn btn-toggle btn-collapse align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+            Genres
+          </button>
+          <div class="collapse" id="orders-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              <% genresList.forEach((genre)=>{%>
+                <li><a href=<%= genre.url %> class="link-dark rounded"><%= genre.title %></a></li>
+               <% }) %>
+            </ul>
+          </div>
+        </li>
+        <li class="mb-1">
+          <button class="btn btn-toggle btn-collapse align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#admin-collapse" aria-expanded="false">
+            Admin
+          </button>
+          <div class="collapse" id="admin-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+  <!--             <li><a href="#" class="link-dark rounded">New</a></li>
+              <li><a href="#" class="link-dark rounded">Processed</a></li>
+              <li><a href="#" class="link-dark rounded">Shipped</a></li>
+              <li><a href="#" class="link-dark rounded">Returned</a></li> -->
+            </ul>
+          </div>
+        </li>
+        <li class="border-top my-3"></li>
+      </ul>
+    </div>

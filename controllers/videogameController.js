@@ -2,11 +2,14 @@ const Videogame = require("../models/videogame");
 const asyncHandler = require("express-async-handler");
 
 exports.index = asyncHandler(async(req,res,next)=>{
-    res.send("TODO IMPLEMENTED: GET INDEX")
+    //res.send("TODO IMPLEMENTED: GET INDEX")
+    
+    res.render("index.ejs",{title:"homepage"})
 })
 
 exports.all_videogames = asyncHandler(async(req,res,next)=>{
-    res.send("TODO IMPLEMENT: GET ALL VIDEOGAMES")
+    gamesList = await Videogame.find({});
+    res.render("games_list.ejs",{gamesList:gamesList});
 })
 
 exports.videogame_detail = asyncHandler(async (req,res,next) => {
