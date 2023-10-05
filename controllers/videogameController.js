@@ -13,7 +13,8 @@ exports.all_videogames = asyncHandler(async(req,res,next)=>{
 })
 
 exports.videogame_detail = asyncHandler(async (req,res,next) => {
-    res.send("Todo implement: get book detail");
+    videogameDetail = await Videogame.findById(req.params.id);
+    res.render("games_detail.ejs",{videogameDetail: videogameDetail});
 })
 
 exports.videogame_create_get = asyncHandler(async (req,res,next) => {

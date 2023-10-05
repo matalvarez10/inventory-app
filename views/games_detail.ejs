@@ -1,0 +1,13 @@
+<%- include('partials/header') %>
+<%- include('partials/sidebar') %>
+<div class="col-sm-10 p-2">
+<h1 class="display-5">Detail of game: <%= videogameDetail._id %> </h1>
+<p><%= videogameDetail.name %></p>
+<p><%= videogameDetail.developer %></p>
+<p><%= videogameDetail.publisher %></p>
+<p><%= videogameDetail.price %></p>
+<p><%= videogameDetail.stock %></p>
+<button class="btn btn-danger">Delete</button>
+<button class="btn btn-primary">Edit</button>
+</div>
+<%- include('partials/footer') %>
