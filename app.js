@@ -3,6 +3,7 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const mongoose = require("mongoose");
+const createError = require('http-errors');
 require("dotenv").config();
 
 const indexRouter = require("./routes/index");
@@ -63,8 +64,8 @@ app.use(async (req, res, next) => {
   next();
 });
 app.use("/", indexRouter);
+app.use("/genres", genresRouter);
 app.use("/games", gamesRouter);
-app.use("/genre", genresRouter);
 app.use("/system", systemsRouter);
 
 // catch 404 and forward to error handler

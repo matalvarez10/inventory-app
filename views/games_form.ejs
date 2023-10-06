@@ -1,20 +1,51 @@
 <%- include("partials/header")  %>
 <%- include("partials/sidebar")  %>
 <h1 class="display-5"> <%= title %></h1>
-<form class="mx-2" style="max-width: 900px;">
-    <label for="gameName" class="form-label">Videogame Title:</label>
-    <input type="text" name="gameName" class="form-control">
-    <label for="developerName" class="form-label">Developer Name:</label>
-    <input type="text" name="developerName" class="form-control">
-    <label for="publisherName" class="form-label">Publisher Name:</label>
-    <input type="text" name="publisherName" class="form-control">
+<form method="post" action="" class="mx-2" style="max-width: 900px;">
+    <label for="title" class="form-label">Videogame Title:</label>
+    <input type="text" name="title" class="form-control" value=<%= game ? game.name : "" %>>
+    <label for="developer" class="form-label">Developer Name:</label>
+    <input type="text" name="developer" class="form-control" value=<%= game ? game.developer : "" %>>
+    <label for="publisher" class="form-label">Publisher Name:</label>
+    <input type="text" name="publisher" class="form-control" value=<%= game ? game.publisher : "" %>>
     <label for="description" class="form-label">Videogame Description:</label>
-    <textarea name="description" class="form-control"></textarea>
+    <textarea name="description" class="form-control" style="height: 150px;" ><%= game ? game.description : "" %></textarea>
     <div class="d-flex flex-row gap-3 my-4">
         <label for="price" class="form-label">Price:</label>
-        <input type="number" min="0" name="price" class="form-control">
-        <label for="Stock" class="form-label">Stock:</label>
-        <input type="number" min="0" name="Stock" class="form-control">
+        <input type="text" min="0" name="price" class="form-control" value=<%= game ? game.price : "" %>>
+        <label for="stock" class="form-label">Stock:</label>
+        <input type="text" min="0" name="stock" class="form-control" value=<%= game ? game.stock : "" %>>
     </div>
+    <p>Genres:</p>  
+    <div class="d-flex flex-row gap-3 mb-4">
+        <% genres.forEach((genre)=>{ %>
+            <div class="form-check" >
+                <input class="form-check-input" type="checkbox" value=<%= genre._id %> id=<%= genre.title %>
+                name="genre" <%= genre.checked === "true" ? "checked" : "" %> >
+                <label class="form-check-label" for=<%= genre.title %>   >
+                  <%= genre.title %>
+                </label>
+            </div>
+        <% })  %>
+    </div>
+    <p>Systems:</p>
+    <div class="d-flex flex-row gap-3 mb-4">
+        <% systems.forEach((system)=>{ %>
+            <div class="form-check" >
+                <input class="form-check-input" type="checkbox" value=<%= system._id %> 
+                id=<%= system.title %> name="system" <%= system.checked === "true" ? "checked" : "" %> >
+                <label class="form-check-label" for=<%= system.title %>>
+                  <%= system.title %>
+                </label>
+            </div>
+        <% })  %>
+    </div>
+    <button type="submit" class="btn btn-primary mb-2">Submit game</button>
+    <% if(errors){
+        errors.forEach((error)=>{ %>
+        <div class="alert alert-danger" role="alert">
+           Error: <%= error.msg %>
+        </div>
+   <%  })} %>
 </form>
 <%- include("partials/footer")  %>

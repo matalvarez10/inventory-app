@@ -1,0 +1,20 @@
+<%- include("partials/header")  %>
+<%- include("partials/sidebar")  %>
+<h1 class="display-5"> <%= title %></h1>
+<form method="post" action="" class="mx-2" style="max-width: 900px;">
+<label for="title" class="form-label">Genre Title</label>
+<input type="text" name="title" id="title" class="form-control" value=<%= genre ? genre.title : "" %> >
+<label for="description" class="form-label">Genre Description</label>
+<textarea type="text" name="description" id="description" class="form-control">
+    <%= genre ? genre.description : "" %>
+</textarea>
+<button class="btn btn-primary my-3" type="submit">Add New Genre</button>
+<% if(errors){ %>
+    <% errors.forEach((error)=>{ %>
+        <div class="alert alert-danger">
+            Error: <%= error.msg %>
+        </div>
+   <% }) %>
+<% } %>
+</form>
+<%- include("partials/footer")  %>
