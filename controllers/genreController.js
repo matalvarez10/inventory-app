@@ -54,9 +54,13 @@ exports.genre_create_post = [
   }),
 ];
 
-exports.genre_delete_get = asyncHandler(async (req, res, next) => {
-  res.send("TODO implement: genre delete get ");
-});
+
 exports.genre_delete_post = asyncHandler(async (req, res, next) => {
   res.send("TODO implement: genre delete post ");
+});
+exports.genre_update_get = asyncHandler(async (req, res, next) => {
+  res.send("TODO implement: genre update get ");
+});
+exports.genre_update_post = asyncHandler(async (req, res, next) => {
+  res.send("TODO implement: genre update post");
 });
