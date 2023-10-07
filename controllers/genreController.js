@@ -12,7 +12,11 @@ exports.filter_by_genres = asyncHandler(async (req, res, next) => {
   });
 });
 exports.get_all_genres = asyncHandler(async (req, res, next) => {
-  res.send("TODO: Implement all genres view");
+    const genreList = await Genre.find();
+  res.render("genres_list.ejs",{
+    title: "All Genres Details",
+    genreList:genreList,
+  });
 });
 exports.get_genre_detail = asyncHandler(async (req, res, next) => {
   res.send("TODO: Implement genre detail");
@@ -45,7 +49,7 @@ exports.genre_create_post = [
         })
     }else{
         await genre.save();
-        res.redirect(genre.detailUrl);
+        res.redirect("/genres");
     }
   }),
 ];

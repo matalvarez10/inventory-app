@@ -1,5 +1,5 @@
 
-  <div class="col-sm-2 p-3 bg-light">
+  <div class="col-sm-2 p-3 bg-light text-primary">
       <em>Variant: <%= typeof variant != 'undefined' ? variant : 'default' %></em>
       <a href="/" class="d-flex align-items-center gap-2  mb-3 link-dark text-decoration-none border-bottom">
         <i id="home-icon" class="bi bi-controller""></i>
@@ -11,6 +11,13 @@
             <button class="btn btn-togglealign-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
               <i class="bi bi-list-check"></i>
               All Games
+            </button>
+          </a>
+        </li>
+          <a href="/genres">
+            <button class="btn btn-togglealign-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+              <i class="bi bi-pencil-square"></i>
+              All Genres Details
             </button>
           </a>
         </li>
