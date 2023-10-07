@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const GenreSchema = new Schema({
-    title: {type:String, minLength:2,maxLength:50},
-    description: {type:String, minLength:2,maxLength:200},
+    title: {type:String, minLength:1,maxLength:150},
+    description: {type:String, minLength:1,maxLength:400},
 })
 
 GenreSchema.virtual("url").get(function(){
