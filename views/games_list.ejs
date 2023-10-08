@@ -1,28 +1,33 @@
 <%- include("partials/header")  %>
 <%- include("partials/sidebar")  %>
 <h1 class="display-5"> <%= title %></h1>
-<table class="table table-light table-hover table-striped">
-    <thead>
-        <th>#</th>
-        <th scope="col">Name</th>
-        <th scope="col">Developer</th>
-        <th scope="col">Publisher</th>
-        <th scope="col">Price</th>
-        <th scope="col">Stock</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <% gamesList.forEach((game,index)=>{%>
-            <tr>
-                <th><%= index %></th>
-                <td><%= game.name %></td>
-                <td><%= game.developer %></td>
-                <td><%= game.publisher%></td>
-                <td>$ <%= game.price  %></td>
-                <td><%= game.stock %></td>
-                <td><a class="btn btn-primary" href=<%= game.url %>>More Details</a></td>
-            </tr>
-        <% }) %>
-    </tbody>
-</table>
+<% if(gamesList.length === 0){%>
+    <div class="alert alert-danger">No games found, <a href="/games/create" class="alert-link" >Try adding some games</a></div>
+<%  }else{%>
+    <table class="table table-light table-hover table-striped">
+        <thead>
+            <th>#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Developer</th>
+            <th scope="col">Publisher</th>
+            <th scope="col">Price</th>
+            <th scope="col">Stock</th>
+            <th scope="col"></th>
+        </thead>
+        <tbody>
+            <% gamesList.forEach((game,index)=>{%>
+                <tr>
+                    <th><%= index %></th>
+                    <td><%= game.name %></td>
+                    <td><%= game.developer %></td>
+                    <td><%= game.publisher%></td>
+                    <td>$ <%= game.price  %></td>
+                    <td><%= game.stock %></td>
+                    <td><a class="btn btn-primary" href=<%= game.url %>>More Details</a></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+<% } %>
+
 <%- include("partials/footer")  %>

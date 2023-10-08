@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const game_controller = require("../controllers/videogameController");
 
+  //const upload = multer({ storage });
 /* GET users listing. */
 
 router.get('/create', game_controller.videogame_create_get);

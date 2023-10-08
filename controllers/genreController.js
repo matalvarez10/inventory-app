@@ -2,6 +2,7 @@ const Videogame = require("../models/videogame");
 const Genre = require("../models/genre");
 const { body, validationResult } = require("express-validator");
 const asyncHandler = require("express-async-handler");
+const genre = require("../models/genre");
 
 exports.filter_by_genres = asyncHandler(async (req, res, next) => {
   const gamesList = await Videogame.find({ genre: req.params.id });

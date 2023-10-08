@@ -3,11 +3,23 @@ const Genre = require("../models/genre");
 const System = require("../models/system");
 const { body, validationResult } = require("express-validator");
 const asyncHandler = require("express-async-handler");
+const multer  = require('multer');
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'public/data/uploads'); // Relative path to the 'uploads' directory
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + '-' + file.originalname); // Rename the file to avoid conflicts
+  },
+});
+
+const upload = multer({ storage });
 
 exports.index = asyncHandler(async (req, res, next) => {
   //res.send("TODO IMPLEMENTED: GET INDEX")
 
-  res.render("index.ejs", { title: "homepage" });
+  res.redirect("/games");
 });
 
 exports.all_videogames = asyncHandler(async (req, res, next) => {
@@ -49,6 +61,7 @@ exports.videogame_create_post = [
     }
     next();
   },
+  upload.single('uploaded_file'),
   body("title", "Title must not be empty.")
     .trim()
     .isLength({ min: 3, max: 100 })
@@ -81,6 +94,9 @@ exports.videogame_create_post = [
       genre: req.body.genre,
       system: req.body.system,
     });
+    if(['image/png','image/jpg'].includes(req.file.mimetype)){
+      game.imgUrl = req.file.destination.slice(7) + "/" + req.file.filename;
+    }
     if (!errors.isEmpty()) {
       const [genres, systems] = await Promise.all([
         Genre.find().exec(),
@@ -159,6 +175,7 @@ exports.videogame_update_post = [
     }
     next();
   },
+  upload.single('uploaded_file'),
   body("title", "Title must not be empty.")
     .trim()
     .isLength({ min: 3, max: 100 })
@@ -192,6 +209,9 @@ exports.videogame_update_post = [
       system: req.body.system,
       _id:req.params.id,
     });
+    if(['image/png','image/jpeg'].includes(req.file.mimetype)){
+      game.imgUrl = req.file.destination.slice(7) + "/" + req.file.filename;
+    }
     if (!errors.isEmpty()) {
       const [genres, systems] = await Promise.all([
         Genre.find().exec(),

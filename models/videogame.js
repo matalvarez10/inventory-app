@@ -10,7 +10,8 @@ const VideogameSchema = new Schema({
   price: { type: Number, required: true },
   stock: { type: Number, required: true },
   genre: [{ type: Schema.Types.ObjectId, ref: "Genre" }],
-  system: [{ type: Schema.Types.ObjectId, ref: "System" }]
+  system: [{ type: Schema.Types.ObjectId, ref: "System" }],
+  imgUrl:{type:String},
 });
 
 VideogameSchema.virtual("url").get(function(){
