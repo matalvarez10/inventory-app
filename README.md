@@ -25,5 +25,12 @@ The Video Game Inventory Management App is a web application built with Node.js,
 - **Bootstrap**: A popular CSS framework for responsive and visually appealing design.
 
 - **EJS (Embedded JavaScript)**: A templating engine for dynamic content rendering.
+  
+- ## To Do
+
+- **Add Auth
+
+
+
 
 
