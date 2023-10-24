@@ -28,7 +28,7 @@ The Video Game Inventory Management App is a web application built with Node.js,
   
 ## To Do
 
-- **Add Auth
+- Add Auth
 
 
 
