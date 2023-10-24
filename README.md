@@ -27,18 +27,3 @@ The Video Game Inventory Management App is a web application built with Node.js,
 - **EJS (Embedded JavaScript)**: A templating engine for dynamic content rendering.
 
 
-## Getting Started
-
-To set up and use the Video Game Inventory Management App, follow these steps:
-
-1. Clone the repository to your local machine.
-
-2. Navigate to the project directory.
-
-3. Install the required Node.js dependencies using `npm install`.
-
-4. Set up a MongoDB database and configure the connection in `app.js`.
-
-5. Start the server with `npm start`.
-
-6. Open your web browser and access the app at `http://localhost:3000`.
